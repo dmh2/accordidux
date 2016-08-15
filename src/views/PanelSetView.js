@@ -6,7 +6,7 @@ export function PanelSetView(props) {
     const handlePanelClick = id => togglePanel(id);
 
     return (
-        <div className='test-accordion-container tp-flex-container tp-flex-direction-column'>
+        <div className='test-accordion-container tp-flex-container tp-flex-direction-column tp-flex-full-size'>
             {panels ? panels.map(panelData => (
                 <PanelView panelData={panelData.toJS()} clickCallback={handlePanelClick} key={panelData.get('id')}/>
             )) : [(<span>no panels...</span>)]}

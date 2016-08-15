@@ -26,6 +26,10 @@
     flex: 0;
 }
 
+.tp-flex-full-size{
+    flex: 1;
+}
+
 .test-accordion-container{
     height: 100%;
     background: greenyellow;
@@ -46,26 +50,32 @@
     transition: height 0.20s ease;
 }
 
-.test-row-closed{
-    height: 24px;
-}
-.test-row-closed > .test-panel-row-header{
-    height: 24px;
-}
-
 .test-panel-row-header{
     background: gray;
     color: white;
     font-weight: bold;
     padding: 3px;
-    height: 30px;
+    height: 24px;
     cursor: pointer;
 }
 
 .test-panel-row-content {
     background: white;
     padding: 3px;
-    height: 100%;
+    /*height: 100%;*/
+    overflow-y: auto;
+}
+
+.test-row-closed{
+    height: 24px;
+}
+.test-row-closed > .test-panel-row-header{
+    height: 24px;
+}
+.test-row-closed > .test-panel-row-content{
+    height: 0px;
+    /*flex:0;*/
+    display: none;
 }
 
 body{
@@ -82,4 +92,68 @@ body{
     top: 0px;
     margin: 0px;
     overflow: hidden;
+}
+
+
+/*test mpx styles*/
+
+.tp-string-input-control{
+    display: block;
+    text-align: left;
+    color: #6c6d6f;
+    vertical-align: middle;
+    padding: 0.625em 20px;
+    margin: 0.3125em 0;
+    position: relative;
+    margin: inherit;
+    margin-top: 0.45em;
+    height: 100%;
+    width: calc(50% - 0.25em);
+    float: left;
+    margin-left: 0.45em;
+    /*display: flex;*/
+    flex: 1 1 0%;
+    position: absolute;
+    outline: none;
+    overflow: hidden;
+    -webkit-user-select: text;
+    flex-direction: row;
+    height: 100%;
+    left: 0px;
+    right: 0px;
+    font-family: "Open Sans", sans-serif;
+    height: 100%;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: subpixel-antialiased ;
+    line-height: 1.07rem;
+    font-size: 0.6rem;
+    margin: 0.3125em 0;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+}
+.tp-string-input-control-label,
+.tp-universal-picker-control-label,
+.tp-datetime-control-label,
+.tp-checkbox-control-label {
+    font-weight: 400;
+    font-size: 1.4em;
+    line-height: 2em;
+    color: #6c6d6f;
+}
+.tp-string-input-control-input{
+    height: 2.08em;
+    line-height: 1.85;
+    font-size: 1em;
+    padding: 0.1em 0em 0em 0.4em;
+    font-size: 1.37em;
+    width: 100%;
+    border-radius: 0.125em 0.125em 0.125em 0.125em;
+    -moz-border-radius: 0.125em 0.125em 0.125em 0.125em;
+    -webkit-border-radius: 0.125em 0.125em 0.125em 0.125em;
+    border: 1px solid #a1a1a1;
+    padding: 0em 0em 0em 0.5em;
 }
