@@ -10,11 +10,11 @@ import { addPanel } from './actions';
 const store = createStore(reducer);
 
 const testPanels = [
-    {isOpen: false,  header: 'Meta Data', content: 'Meta Data panel content goes here.'},
-    {isOpen: false, header: 'Policies', content: 'Policies panel content goes here.'},
-    {isOpen: true, header: 'User Settings', content: 'User Settings panel content goes here.'},
-    {isOpen: false, header: 'Custom Commands', content: 'Custom Commands panel content goes here.'},
-    {isOpen: false, header: 'History', content: 'History panel content goes here.'}
+    {isOpen: false,  header: 'Meta Data', content: ['Title','Description','Related']},
+    {isOpen: false, header: 'Policies', content: ['Policy A','Restriction Policy']},
+    {isOpen: true, header: 'User Settings', content: ['Name','Username','Email','Status']},
+    {isOpen: false, header: 'Custom Commands', content: ['Command 1','Command 2','Command 3','Command 4','Command 5']},
+    {isOpen: false, header: 'History', content: ['Last Updated','Last Updated By','Created','Created By','Play Count','Use Count']}
 ];
 
     let i,length = testPanels.length ;

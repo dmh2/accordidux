@@ -6,7 +6,11 @@ const uid = () => Math.random().toString(34).slice(2);
 
 export function addPanel(panelData) {
     let createPanelItem = (content) => {
-        return (<PanelItemView content={content}/>) ;
+        let contents = [] ;
+        for(let i=0;i<content.length;i++){
+             contents.push((<PanelItemView content={content[i]}/>)) ;
+        }
+        return contents ;
     };
 
     return {

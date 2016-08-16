@@ -134,6 +134,7 @@ body{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
+    height: initial;
 }
 .tp-string-input-control-label,
 .tp-universal-picker-control-label,
