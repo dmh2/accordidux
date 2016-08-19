@@ -2,14 +2,24 @@ import React from 'react';
 import { PanelView } from '../views/PanelView' ;
 
 export function PanelSetView(props) {
-    const { panels, togglePanel} = props;
-    const handlePanelClick = id => togglePanel(id);
+    // const { panels, togglePanel} = props;
+    const { panels, togglePanel, panelSetId} = props;
+    const handlePanelClick = (id,panelSetId) => {togglePanel(id,panelSetId)};
+
+    // const buildPanelSets = (panelSets) => {
+    //     return
+    // }
+
 
     return (
         <div className='test-accordion-container tp-flex-container tp-flex-direction-column tp-flex-full-size'>
-            {panels ? panels.map(panelData => (
-                <PanelView panelData={panelData.toJS()} clickCallback={handlePanelClick} key={panelData.get('id')}/>
-            )) : [(<span>no panels...</span>)]}
+            {panels ? panels.map((panelData) => {
+                    // let currentPanelData = panelData.toJS() ;
+                    // let currentPanelID = panelData.get('id') ;
+                    let currentPanelData = panelData ;
+                let currentPanelID = panelData.id ;
+                return (<PanelView panelData={panelData} clickCallback={handlePanelClick} key={currentPanelID}/>)
+            }) : [(<span>no panels...</span>)]}
         </div>
     );
 }

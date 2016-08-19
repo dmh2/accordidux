@@ -30,9 +30,16 @@
     flex: 1;
 }
 
+
+
+.test-flex-pane{
+    display: flex;
+    height: 100%;
+}
+
 .test-accordion-container{
     height: 100%;
-    background: greenyellow;
+    background: #e2ffb1;
     padding: 3px;
 }
 
