@@ -12,7 +12,7 @@ export function PanelView(props) {
             <div className="test-panel-row-header" onClick={handleHeaderClick(panelData.id, panelData.panelSetId)}>
                 {panelData.header}
             </div>
-            <div className="test-panel-row-content tp-flex-full-size">
+            <div className="test-panel-row-content tp-flex-full-size tp-flex-container tp-flex-direction-row">
                 {panelData.content}
             </div>
         </div>

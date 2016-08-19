@@ -30,6 +30,11 @@
     flex: 1;
 }
 
+.tp-flex-panel-item{
+    position: relative;
+    min-width: 200px;
+    max-width: 350px;
+}
 
 
 .test-flex-pane{
@@ -71,6 +76,8 @@
     padding: 3px;
     /*height: 100%;*/
     overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .test-row-closed{
