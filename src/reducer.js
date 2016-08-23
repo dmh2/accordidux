@@ -16,6 +16,9 @@ export default function(panelSets = {}, action) {
                     if(!panelSets[panelSetId].panels){
                         panelSets[panelSetId].panels = [] ;
                     }
+                    if(!panelSets[panelSetId].openCount){
+                        panelSets[panelSetId].openCount = 0 ;
+                    }
                     // panelSets[panelSetId].panels = [] ;
                 }
                 // if(!panelSets.get(panelSetId)){
@@ -37,6 +40,12 @@ export default function(panelSets = {}, action) {
             // }
             if(panelSetId !== null){
                 panelSets[panelSetId].panels.push(action.payload);
+
+                // Conditionally increment the openCount.
+                if(action.payload && action.payload.isOpen){
+                    panelSets[panelSetId].openCount ++ ;
+                }
+
                 return panelSets ;
                 // return panelSets[panelSetId].panels.push(Map(action.payload));
                 // let panels = panelSets.getIn([panelSetId,'panels']) ;
@@ -59,9 +68,25 @@ export default function(panelSets = {}, action) {
                     //     return panel;
                     // }
                 // panelSets[panelSetId].panels = panelSets[panelSetId].panels.map(panel => {
+                let openCount = panelSets[panelSetId] && panelSets[panelSetId].openCount ? panelSets[panelSetId].openCount : -1 ;
+
                 panelSets[panelSetId].panels.map(panel => {
                     // if(panel.id === action.payload) {
                     if(panel.id === action.payload.id) {
+                        // Update the open count.
+                        if(panel.isOpen){
+                            // Don't toggle the last open panel,
+                            // i.e. don't allow 0 open panels.
+                            // TODO - set open limit by configuration.
+                            if(panelSets[panelSetId].openCount <= 1){
+                                return panel ;
+                            }
+                            panelSets[panelSetId].openCount-- ;
+                        }
+                        else{
+                            panelSets[panelSetId].openCount++ ;
+                        }
+                        // Toggle the isOpen value ;
                         panel.isOpen = !panel.isOpen ;
                     }
                     return panel ;

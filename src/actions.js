@@ -27,10 +27,13 @@ const uid = () => Math.random().toString(34).slice(2);
 
 export function addPanel(panelData, panelSetId) {
     let createPanelItem = (content) => {
+        let panelItemCount = content.length;
         let contents = [] ;
-        for(let i=0;i<content.length;i++){
+
+        for(let i=0;i<panelItemCount;i++){
              contents.push((<PanelItemView content={content[i]} key={'panel' + i}/>)) ;
         }
+
         return contents ;
     };
 

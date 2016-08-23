@@ -33,7 +33,7 @@
 .tp-flex-panel-item{
     position: relative;
     min-width: 200px;
-    max-width: 350px;
+    max-width: 420px;
 }
 
 
@@ -44,7 +44,7 @@
 
 .test-accordion-container{
     height: 100%;
-    background: #e2ffb1;
+    background: #ad867e;
     padding: 3px;
 }
 
@@ -60,15 +60,24 @@
     -ms-transition: height 0.20s ease;
     -o-transition: height 0.20s ease;
     transition: height 0.20s ease;
+
+    /*overflow-y: auto;*/
+    min-height: 30px;
 }
 
 .test-panel-row-header{
     background: gray;
     color: white;
     font-weight: bold;
-    padding: 3px;
+    padding: 3px 7px;
     height: 24px;
     cursor: pointer;
+}
+.test-panel-row-header:hover{
+    background: #959595;
+}
+.test-panel-row-header:active{
+    background: #4f4f4f;
 }
 
 .test-panel-row-content {
@@ -78,6 +87,7 @@
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
+    min-height: 30px;
 }
 
 .test-row-closed{

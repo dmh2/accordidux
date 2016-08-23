@@ -37,18 +37,23 @@ if (isMulti){
 }
 
 let panelSet, panelSetKey, panelSetId, j, panelData, panelSets = [], groupCount = multiPanels.length ;
+let i, panelItemData, panelItemCount;
 
 for(j=0;j<groupCount;j++){
     panelData = multiPanels[j] ;
+
     // panelSetId = uid() ;
     panelSetId = 'panelSet' + j ;
     // panelSetKey = 'panelSet' + panelSetId ;
-    panelSet = (<PanelSet panelSetId={panelSetId} key={panelSetId}/>)
-    let i,length = panelData.length ;
-    for(i=0;i<length;i++){
+    panelSet = (<PanelSet panelSetId={panelSetId} key={panelSetId}/>) ;
+    panelItemCount = panelData.length ;
+
+    for(i=0;i<panelItemCount;i++){
+        panelItemData = panelData[i] ;
         // store.dispatch(addPanel(panelData[i]));
-        store.dispatch(addPanel(panelData[i],panelSetId));
+        store.dispatch(addPanel(panelItemData,panelSetId));
     }
+
     panelSets.push(panelSet) ;
 }
 
