@@ -74,10 +74,10 @@
     cursor: pointer;
 }
 .test-panel-row-header:hover{
-    background: #959595;
+    background: #8f8f8f;
 }
 .test-panel-row-header:active{
-    background: #4f4f4f;
+    background: #5a5a5a;
 }
 
 .test-panel-row-content {

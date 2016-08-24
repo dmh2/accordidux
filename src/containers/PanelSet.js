@@ -8,8 +8,11 @@ import { togglePanel } from '../actions';
 export const PanelSet = connect(
     function mapStateToProps(state,ownProps) {
         // return { panels: state };
-        return { panels: state[ownProps.panelSetId].panels,
-            panelSetId: ownProps.panelSetId } ;
+        return {
+            panels: state[ownProps.panelSetId].panels,
+            panelSetId: ownProps.panelSetId,
+            panelSetStyle: ownProps.panelSetStyle
+        } ;
         // return { panels: state.filter((panel) => { return panel.panelSetId === panelSetId}) };
     },
     function mapDispatchToProps(dispatch,ownProps) {

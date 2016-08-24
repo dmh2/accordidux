@@ -30,6 +30,19 @@ const testPanels2 = [
 
 const isMulti = document.location.href.indexOf('multi=true') >= 0 ;
 
+const _getUrlValue =  function _getUrlValue(testKey) {
+    var urlValue = null ;
+    var currentURL = document.URL ;
+    if(currentURL.indexOf(testKey) >= 0){
+        var valueStartIndex = currentURL.indexOf(testKey) ;
+        urlValue = currentURL.substr(valueStartIndex + testKey.length + 1) ;
+        var valueEndIndex = urlValue.indexOf('&') > 0 ? urlValue.indexOf('&') : urlValue.length ;
+        urlValue = urlValue.substring(0,valueEndIndex) ;
+    }
+    return urlValue ;
+}
+const fixedHeight = !isNaN(_getUrlValue('fixedHeight')) ? Number(_getUrlValue('fixedHeight')) : 0 ;
+
 let multiPanels = [testPanels] ;
 
 if (isMulti){
@@ -42,10 +55,12 @@ let i, panelItemData, panelItemCount;
 for(j=0;j<groupCount;j++){
     panelData = multiPanels[j] ;
 
+    let testFixedHeightStyle = j !== 1 || fixedHeight === 0 ? {} : {height:fixedHeight+'px',maxHeight:fixedHeight+'px'} ;
+
     // panelSetId = uid() ;
     panelSetId = 'panelSet' + j ;
     // panelSetKey = 'panelSet' + panelSetId ;
-    panelSet = (<PanelSet panelSetId={panelSetId} key={panelSetId}/>) ;
+    panelSet = (<PanelSet panelSetId={panelSetId} key={panelSetId} panelSetStyle={testFixedHeightStyle}/>) ;
     panelItemCount = panelData.length ;
 
     for(i=0;i<panelItemCount;i++){
